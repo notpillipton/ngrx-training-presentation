@@ -14,6 +14,7 @@ export class LeftPanelContainerComponent implements OnInit {
   @Input() leftPanelState: fromUIPanel.LeftPanelState;
 
   detailsPanelState$ = this.store.select(fromStore.getDetailsPanelState);
+  appState$ = this.store.select(fromStore.getApplicationState);
 
   leftPanelStates = fromUIPanel.LeftPanelState;
 

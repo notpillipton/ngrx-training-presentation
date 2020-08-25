@@ -15,7 +15,7 @@ export class QuotesTableComponent implements OnInit {
 
   cols: any[] = [
     { field: 'source', header: 'Quote Source', colWidth: '200px', isVisible: true },
-    { field: 'quoteText', header: 'Famous Quote', colWidth: '600px', isVisible: true },
+    { field: 'quoteText', header: 'Famous Quote', colWidth: '1200px', isVisible: true },
     { field: 'sourceMedium', header: 'Medium', colWidth: '80px', isVisible: true }
   ];
   emDashes = '&#8212; &#8212;';

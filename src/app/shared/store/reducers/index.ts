@@ -36,3 +36,15 @@ export const getSelectedQuote = createSelector(getQuotesState, fromQuotes.getSel
 
 // Create helper functions to cleanly manipulate data in selectors
 export const isQuotes404Error = createSelector(getQuotesError, fromSelectorFunctions.is404error);
+
+// Use selectors to combine slices of state
+export const getApplicationState = createSelector(
+  getUIState,
+  getQuotesState,
+  (uiState: fromUIState.UIState, quotesState: fromQuotes.QuotesState) => {
+    return {
+      ...uiState,
+      ...quotesState
+    };
+  }
+);
