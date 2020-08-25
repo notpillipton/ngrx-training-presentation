@@ -1,2 +1,2 @@
 <div>MAIN PANEL CONTAINER</div>
-<app-quotes-table *ngIf="mainPanelState === mainPanelStates.QUOTES_TABLE" [quotesData]="quotesData$ | async"></app-quotes-table>
+<app-quotes-table *ngIf="mainPanelState === mainPanelStates.QUOTES_TABLE" [quotesData]="quotesData$ | async" (selectedElement)=selectQuote($event)></app-quotes-table>

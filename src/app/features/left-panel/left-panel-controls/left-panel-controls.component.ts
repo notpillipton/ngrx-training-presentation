@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
 import * as fromStore from '@store/reducers/index';
@@ -12,9 +12,16 @@ import * as fromUIPanel from '@store/actions/ui-state.action';
 })
 export class LeftPanelControlsComponent implements OnInit {
 
+  @Input() detailsPanelState: fromUIPanel.DetailsPanelState;
+  detailsPanelOffState = fromUIPanel.DetailsPanelState.PANEL_OFF;
+
   constructor(private readonly store: Store<fromStore.ApplicationState>) { }
 
   ngOnInit() {
+  }
+
+  closeDetails() {
+    this.store.dispatch(new fromUIPanel.DetailsPanelStateChange(fromUIPanel.DetailsPanelState.PANEL_OFF));
   }
 
   startup() {

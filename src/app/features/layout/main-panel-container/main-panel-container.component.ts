@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import * as fromStore from '@store/reducers/index';
 import * as fromUIPanel from '@store/actions/ui-state.action';
+import * as fromQuotes from '@store/actions/quotes.action';
 import { FamousQuote } from '@shared/models/famous-quote.model';
 
 @Component({
@@ -26,4 +27,8 @@ export class MainPanelContainerComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectQuote($event) {
+    this.store.dispatch(new fromQuotes.SelectQuoteById($event.id));
+    this.store.dispatch(new fromUIPanel.DetailsPanelStateChange(fromUIPanel.DetailsPanelState.QUOTE_DETAIL));
+  }
 }

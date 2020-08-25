@@ -1,3 +1,3 @@
 <div>LEFT PANEL CONTAINER</div>
-<app-left-panel-controls *ngIf="leftPanelState === leftPanelStates.CONTROLS"></app-left-panel-controls>
+<app-left-panel-controls [detailsPanelState]="detailsPanelState$ | async"></app-left-panel-controls>
 <app-left-panel-monitor *ngIf="leftPanelState === leftPanelStates.MONITOR"></app-left-panel-monitor>

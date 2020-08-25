@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 
+import * as fromStore from '@store/reducers/index';
 import * as fromUIPanel from '@store/actions/ui-state.action';
 
 @Component({
@@ -10,9 +12,11 @@ import * as fromUIPanel from '@store/actions/ui-state.action';
 })
 export class DetailPanelContainerComponent implements OnInit {
 
-  @Input() detailPanelState: fromUIPanel.DetailPanelState;
+  @Input() detailsPanelState: fromUIPanel.DetailsPanelState;
 
-  constructor() { }
+  selectedQuote$ = this.store.select(fromStore.getSelectedQuote);
+
+  constructor(private readonly store: Store<fromStore.ApplicationState>) { }
 
   ngOnInit() {
   }

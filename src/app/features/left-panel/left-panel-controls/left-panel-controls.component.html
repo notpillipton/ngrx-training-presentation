@@ -1,2 +1,3 @@
 <div>CONTROLS</div>
 <p-button label="Let's Go!" (click)=startup()></p-button>
+<p-button *ngIf="detailsPanelState !== detailsPanelOffState" label="Close Details" (click)=closeDetails()></p-button>

@@ -5,6 +5,6 @@
   <div class="main-area">
     <span *ngIf="(mainPanelState$ | async) === mainPanelOffState">Welcome to NgRx!</span>
     <app-main-panel-container *ngIf="(mainPanelState$ | async) !== mainPanelOffState" class="main-panel" [mainPanelState]="mainPanelState$ | async"></app-main-panel-container>
-    <app-detail-panel-container *ngIf="(detailPanelState$ | async) !== detailPanelOffState" class="detail-panel" [detailPanelState]="detailPanelState$ | async"></app-detail-panel-container>
+    <app-detail-panel-container *ngIf="(detailsPanelState$ | async) !== detailsPanelOffState" class="detail-panel" [detailsPanelState]="detailsPanelState$ | async"></app-detail-panel-container>
   </div>
 </div>

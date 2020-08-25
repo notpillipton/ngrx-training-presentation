@@ -13,6 +13,8 @@ import * as fromUIPanel from '@store/actions/ui-state.action';
 export class LeftPanelContainerComponent implements OnInit {
   @Input() leftPanelState: fromUIPanel.LeftPanelState;
 
+  detailsPanelState$ = this.store.select(fromStore.getDetailsPanelState);
+
   leftPanelStates = fromUIPanel.LeftPanelState;
 
   constructor(private readonly store: Store<fromStore.ApplicationState>) { }

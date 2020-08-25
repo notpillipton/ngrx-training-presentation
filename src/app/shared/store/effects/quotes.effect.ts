@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 
 import * as fromActions from '@shared/store/actions/quotes.action';
@@ -15,7 +15,7 @@ export class QuotesEffects {
     mergeMap((action: fromActions.Quotes) => this.quotesService.getQuotes()
         .pipe(
           map((response: FamousQuote[]) => ({ type: fromActions.ActionTypes.QUOTES_SUCCESS, payload: response })),
-          catchError(err => EMPTY)
+          catchError(err => of(new fromActions.QuotesFail(err.message)))
         )
     )
   ));

@@ -4,11 +4,13 @@ import { FamousQuote } from '@sharedModels/famous-quote.model';
 // Set up the state
 export interface QuotesState {
   quotesData: FamousQuote[];
+  selectedQuote: FamousQuote;
   recentErrorMessage: string;
 }
 
 export const initialState: QuotesState = {
   quotesData: null,
+  selectedQuote: null,
   recentErrorMessage: ''
 };
 
@@ -28,6 +30,12 @@ export function reducer(state = initialState, action: fromActions.QuotesAction):
         recentErrorMessage: action.payload
       };
     }
+    case fromActions.ActionTypes.SELECT_QUOTE_BY_ID: {
+      return {
+        ...state,
+        selectedQuote: state.quotesData[action.payload]
+      };
+    }
     default:
       return state;
   }
@@ -35,4 +43,5 @@ export function reducer(state = initialState, action: fromActions.QuotesAction):
 
 // Create functions that help you get at smaller slices of state quickly
 export const getQuotesData = (state: QuotesState) => state.quotesData;
+export const getSelectedQuote = (state: QuotesState) => state.selectedQuote;
 export const getRecentErrorMessage = (state: QuotesState) => state.recentErrorMessage;

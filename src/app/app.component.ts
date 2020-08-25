@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import * as fromStore from '@store/reducers/index';
 import * as fromUIPanelState from '@store/actions/ui-state.action';
+import * as fromQuotes from '@store/actions/quotes.action';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ export class AppComponent implements OnInit {
   title = 'NgRx Training Presentation';
 
   // Because of the Angular lifecycle, define these stream variables above the constructor
-  detailPanelState$: Observable<fromUIPanelState.DetailPanelState> = this.store.pipe(select(fromStore.getDetailPanelState));
+  detailsPanelState$: Observable<fromUIPanelState.DetailsPanelState> = this.store.pipe(select(fromStore.getDetailsPanelState));
   leftPanelState$: Observable<fromUIPanelState.LeftPanelState> = this.store.pipe(select(fromStore.getLeftPanelState));
   mainPanelState$: Observable<fromUIPanelState.MainPanelState> = this.store.pipe(select(fromStore.getMainPanelState));
 
-  detailPanelOffState = fromUIPanelState.DetailPanelState.PANEL_OFF;
+  detailsPanelOffState = fromUIPanelState.DetailsPanelState.PANEL_OFF;
   leftPanelOffState = fromUIPanelState.LeftPanelState.PANEL_OFF;
   mainPanelOffState = fromUIPanelState.MainPanelState.PANEL_OFF;
 
@@ -26,5 +27,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new fromUIPanelState.LeftPanelStateChange(fromUIPanelState.LeftPanelState.CONTROLS));
+    this.store.dispatch(new fromQuotes.Quotes());
   }
 }

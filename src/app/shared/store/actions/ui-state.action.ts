@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 
-export enum DetailPanelState {
-  PANEL_OFF = '[DetailPanelState] Off',
-  QUOTE_DETAIL = '[DetailPanelState] Show Quote Detail'
+export enum DetailsPanelState {
+  PANEL_OFF = '[DetailsPanelState] Off',
+  QUOTE_DETAIL = '[DetailsPanelState] Show Quote Detail'
 }
 
 export enum LeftPanelState {
@@ -17,14 +17,14 @@ export enum MainPanelState {
 }
 
 export const enum ActionTypes {
-  DETAIL_PANEL_STATE_CHANGE = '[UIPanelState] Change Detail Panel State',
+  DETAILS_PANEL_STATE_CHANGE = '[UIPanelState] Change Details Panel State',
   LEFT_PANEL_STATE_CHANGE = '[UIPanelState] Change Left Panel State',
   MAIN_PANEL_STATE_CHANGE = '[UIPanelState] Change Main Panel State'
 }
 
-export class DetailPanelStateChange implements Action {
-  readonly type = ActionTypes.DETAIL_PANEL_STATE_CHANGE;
-  constructor(public payload: DetailPanelState) {}
+export class DetailsPanelStateChange implements Action {
+  readonly type = ActionTypes.DETAILS_PANEL_STATE_CHANGE;
+  constructor(public payload: DetailsPanelState) {}
 }
 
 export class LeftPanelStateChange implements Action {
@@ -37,4 +37,4 @@ export class MainPanelStateChange implements Action {
   constructor(public payload: MainPanelState) {}
 }
 
-export type UIPanelStateAction = DetailPanelStateChange | LeftPanelStateChange | MainPanelStateChange;
+export type UIPanelStateAction = DetailsPanelStateChange | LeftPanelStateChange | MainPanelStateChange;

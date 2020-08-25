@@ -13,7 +13,7 @@ export class QuotesService {
   constructor(private readonly http: HttpClient) { }
 
   getQuotes(): Observable<FamousQuote[]> {
-    return this.http.get('/src/assets/mock-data/quotes.json').pipe(
+    return this.http.get('/assets/mock-data/quotes.json').pipe(
       map((response: any[]) => response.map((element, index) => ({...element, id: index}) as FamousQuote))
     );
   }
