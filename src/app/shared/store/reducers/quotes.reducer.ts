@@ -33,6 +33,6 @@ export function reducer(state = initialState, action: fromActions.QuotesAction):
   }
 }
 
-// Get at smaller slices of state quickly
+// Create functions that help you get at smaller slices of state quickly
 export const getQuotesData = (state: QuotesState) => state.quotesData;
 export const getRecentErrorMessage = (state: QuotesState) => state.recentErrorMessage;

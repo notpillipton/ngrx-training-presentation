@@ -1,13 +1,9 @@
 <div class="application-area">
   <div class="left-area">
-    <p-panel>This is the Left Area</p-panel>
+    <app-left-panel-container *ngIf="(leftPanelState$ | async) !== leftPanelOffState"></app-left-panel-container>
   </div>
   <div class="main-area">
-    <p-panel class="main-panel">This is the Main Panel
-      <app-main-panel-container></app-main-panel-container>
-    </p-panel>
-    <p-panel class="detail-panel">This is the Detail Panel
-      <app-detail-panel-container></app-detail-panel-container>
-    </p-panel>
+    <app-main-panel-container *ngIf="(mainPanelState$ | async) !== mainPanelOffState" class="main-panel"></app-main-panel-container>
+    <app-detail-panel-container *ngIf="(detailPanelState$ | async) !== detailPanelOffState" class="detail-panel"></app-detail-panel-container>
   </div>
 </div>
