@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 import * as reducers from '@store/reducers/index';
 import * as effects from '@store/effects/index';
@@ -35,6 +36,7 @@ import { LeftPanelMonitorComponent } from './features/left-panel/left-panel-moni
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    ButtonModule,
     HttpClientModule,
     PanelModule,
     StoreModule.forRoot(reducers.applicationReducers),

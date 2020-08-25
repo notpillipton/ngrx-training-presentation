@@ -16,6 +16,24 @@ export const initialState: UIState = {
 // Change the state with a reducer
 export function reducer(state = initialState, action: fromActions.UIPanelStateAction): UIState {
   switch (action.type) {
+    case fromActions.ActionTypes.DETAIL_PANEL_STATE_CHANGE: {
+      return {
+        ...state,
+        detailPanel: action.payload
+      };
+    }
+    case fromActions.ActionTypes.LEFT_PANEL_STATE_CHANGE: {
+      return {
+        ...state,
+        leftPanel: action.payload
+      };
+    }
+    case fromActions.ActionTypes.MAIN_PANEL_STATE_CHANGE: {
+      return {
+        ...state,
+        mainPanel: action.payload
+      };
+    }
     default:
       return state;
   }

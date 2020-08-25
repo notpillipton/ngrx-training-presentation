@@ -10,7 +10,7 @@ import * as fromUIPanelState from '@store/actions/ui-state.action';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'NgRx Training Presentation';
 
   // Because of the Angular lifecycle, define these stream variables above the constructor
@@ -23,4 +23,8 @@ export class AppComponent {
   mainPanelOffState = fromUIPanelState.MainPanelState.PANEL_OFF;
 
   constructor(private readonly store: Store<fromStore.ApplicationState>) { }
+
+  ngOnInit() {
+    this.store.dispatch(new fromUIPanelState.LeftPanelStateChange(fromUIPanelState.LeftPanelState.CONTROLS));
+  }
 }

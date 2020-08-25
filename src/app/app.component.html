@@ -1,9 +1,10 @@
 <div class="application-area">
   <div class="left-area">
-    <app-left-panel-container *ngIf="(leftPanelState$ | async) !== leftPanelOffState"></app-left-panel-container>
+    <app-left-panel-container *ngIf="(leftPanelState$ | async) !== leftPanelOffState" [leftPanelState]="leftPanelState$ | async"></app-left-panel-container>
   </div>
   <div class="main-area">
-    <app-main-panel-container *ngIf="(mainPanelState$ | async) !== mainPanelOffState" class="main-panel"></app-main-panel-container>
-    <app-detail-panel-container *ngIf="(detailPanelState$ | async) !== detailPanelOffState" class="detail-panel"></app-detail-panel-container>
+    <span *ngIf="(mainPanelState$ | async) === mainPanelOffState">Welcome to NgRx!</span>
+    <app-main-panel-container *ngIf="(mainPanelState$ | async) !== mainPanelOffState" class="main-panel" [mainPanelState]="mainPanelState$ | async"></app-main-panel-container>
+    <app-detail-panel-container *ngIf="(detailPanelState$ | async) !== detailPanelOffState" class="detail-panel" [detailPanelState]="detailPanelState$ | async"></app-detail-panel-container>
   </div>
 </div>

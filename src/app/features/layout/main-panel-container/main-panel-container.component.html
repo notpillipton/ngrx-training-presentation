@@ -1,1 +1,2 @@
-<p>main-panel-container works!</p>
+<div>MAIN PANEL CONTAINER</div>
+<app-quotes-table *ngIf="mainPanelState === mainPanelStates.QUOTES_TABLE" [quotesData]="quotesData$ | async"></app-quotes-table>

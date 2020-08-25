@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import * as fromStore from '@store/reducers/index';
-import * as fromUIPanelState from '@store/actions/ui-state.action';
+import * as fromUIPanel from '@store/actions/ui-state.action';
+import { FamousQuote } from '@shared/models/famous-quote.model';
 
 @Component({
   selector: 'app-main-panel-container',
   templateUrl: './main-panel-container.component.html',
-  styleUrls: ['./main-panel-container.component.scss']
+  styleUrls: ['./main-panel-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPanelContainerComponent implements OnInit {
 
+  @Input() mainPanelState: fromUIPanel.MainPanelState;
+
   // Because of the Angular lifecycle, define these stream variables above the constructor
-  mainPanelState$: Observable<fromUIPanelState.MainPanelState> = this.store.pipe(select(fromStore.getMainPanelState));
+  quotesData$: Observable<FamousQuote[]> = this.store.pipe(select(fromStore.getQuotesData));
+
+  mainPanelStates = fromUIPanel.MainPanelState;
 
   constructor(private readonly store: Store<fromStore.ApplicationState>) { }
 

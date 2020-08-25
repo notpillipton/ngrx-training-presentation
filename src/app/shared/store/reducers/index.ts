@@ -10,27 +10,26 @@ export interface ApplicationState {
   quotesState: fromQuotes.QuotesState;
 }
 
-// Create a map of the reducers to pass to the store
+// Create a "map" of the reducers to pass to the store
 export const applicationReducers: ActionReducerMap<ApplicationState> = {
   uiState: fromUIState.reducer,
   quotesState: fromQuotes.reducer
 };
 
-// Create and name a feature selector
-export const getApplicationState = createFeatureSelector<ApplicationState>('application-state');
+// Create and name your feature selectors
+export const getUIState = createFeatureSelector<ApplicationState, fromUIState.UIState>('uiState');
+export const getQuotesState = createFeatureSelector<ApplicationState, fromQuotes.QuotesState>('quotesState');
 
 // Create other selectors
 // Usually you'll start with some chunk of state and then apply a function to refine it further
 // It's helpful to add comments to organize your selectors, since you might end up with many of them
 
 // UI State
-export const getUIState = createSelector(getApplicationState, (state: ApplicationState) => state.uiState);
 export const getDetailPanelState = createSelector(getUIState, fromUIState.getDetailPanel);
 export const getLeftPanelState = createSelector(getUIState, fromUIState.getLeftPanel);
 export const getMainPanelState = createSelector(getUIState, fromUIState.getMainPanel);
 
 // Quotes State
-export const getQuotesState = createSelector(getApplicationState, (state: ApplicationState) => state.quotesState);
 export const getQuotesData = createSelector(getQuotesState, fromQuotes.getQuotesData);
 export const getQuotesError = createSelector(getQuotesState, fromQuotes.getRecentErrorMessage);
 
