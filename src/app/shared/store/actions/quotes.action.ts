@@ -28,4 +28,4 @@ export class UpdateQuoteById implements Action {
   constructor(public payload: FamousQuote) {}
 }
 
-export type LoadListAction = Quotes | QuotesSuccess | QuotesFail | UpdateQuoteById;
+export type QuotesAction = Quotes | QuotesSuccess | QuotesFail | UpdateQuoteById;

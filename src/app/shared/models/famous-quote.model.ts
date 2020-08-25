@@ -1,6 +1,6 @@
 export interface FamousQuote {
   id: number;
-  quoteTest: string;
+  quoteText: string;
   source: string;
   sourceMedium: string;
 }
