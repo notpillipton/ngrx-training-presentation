@@ -1,0 +1,25 @@
+.application-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-area {
+  width: 200px;
+  height: 100%;
+}
+
+.main-area {
+  min-width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-panel {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.detail-panel {
+  height: 100%;
+}
