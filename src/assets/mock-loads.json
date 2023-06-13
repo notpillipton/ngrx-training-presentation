@@ -1,0 +1,22 @@
+[
+    {
+        "loadNumber": "MOCK1234",
+        "commodity": "beans"
+    },
+    {
+        "loadNumber": "1234MOCK",
+        "commodity": "Legumes"
+    },
+    {
+        "loadNumber": "MOCK1234",
+        "commodity": "PEAS"
+    },
+    {
+        "loadNumber": "MOCK1234",
+        "commodity": "fava"
+    },
+    {
+        "loadNumber": "MOCK1234",
+        "commodity": "pulse"
+    }
+]

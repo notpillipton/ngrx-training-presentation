@@ -1,5 +1,0 @@
-<div>
-  <p-panel header="Famous Quotes">
-    <app-quotes-table *ngIf="mainPanelState === mainPanelStates.QUOTES_TABLE" [quotesData]="quotesData$ | async" (selectedElement)=selectQuote($event) class="main-panel-container"></app-quotes-table>
-  </p-panel>
-</div>

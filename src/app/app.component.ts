@@ -1,32 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-
-import * as fromStore from '@store/reducers/index';
-import * as fromUIPanelState from '@store/actions/ui-state.action';
-import * as fromQuotes from '@store/actions/quotes.action';
+import { Component } from '@angular/core';
+import { Load } from './loads.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'NgRx Training Presentation';
+export class AppComponent {
+  title = 'ngrx-training-presentation';
 
-  // Because of the Angular lifecycle, define these stream variables above the constructor
-  detailsPanelState$: Observable<fromUIPanelState.DetailsPanelState> = this.store.pipe(select(fromStore.getDetailsPanelState));
-  leftPanelState$: Observable<fromUIPanelState.LeftPanelState> = this.store.pipe(select(fromStore.getLeftPanelState));
-  mainPanelState$: Observable<fromUIPanelState.MainPanelState> = this.store.pipe(select(fromStore.getMainPanelState));
+  loads: Load[] = [];
+  loadNumbers: string[] = [];
 
-  detailsPanelOffState = fromUIPanelState.DetailsPanelState.PANEL_OFF;
-  leftPanelOffState = fromUIPanelState.LeftPanelState.PANEL_OFF;
-  mainPanelOffState = fromUIPanelState.MainPanelState.PANEL_OFF;
+  setLoads(loads: Load[]) {
+    this.loads = loads;
+  }
 
-  constructor(private readonly store: Store<fromStore.ApplicationState>) { }
-
-  ngOnInit() {
-    this.store.dispatch(new fromUIPanelState.LeftPanelStateChange(fromUIPanelState.LeftPanelState.CONTROLS));
-    this.store.dispatch(new fromQuotes.Quotes());
+  setLoadNumbers(loadNumbers: string[]) {
+    this.loadNumbers = loadNumbers;
   }
 }
