@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { DataComponent } from './data/data.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { LoadsEffects } from './loads/loads.effects';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({ maxAge: 50 }),
+    EffectsModule.forRoot([LoadsEffects])
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

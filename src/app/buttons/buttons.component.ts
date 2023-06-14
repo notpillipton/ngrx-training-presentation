@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
-import { Load, LoadsService } from '../loads.service';
+import { Load, LoadsService } from '../loads/loads.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

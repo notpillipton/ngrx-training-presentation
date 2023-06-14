@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Load } from '../loads.service';
+import { Load } from '../loads/loads.service';
 
 
 @Component({
